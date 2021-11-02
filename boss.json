@@ -7,8 +7,12 @@
 	"projects": [],
 	"dependencies": {
 		"github.com/hashload/horse": "^v2.0.14",
+		"github.com/hashload/horse-basic-auth": "^v1.1.5",
 		"github.com/hashload/horse-cors": "^1.0.3",
+		"github.com/hashload/horse-jwt": "^2.0.4",
 		"github.com/hashload/jhonson": "^1.1.2",
-		"github.com/viniciussanchez/dataset-serialize": "^v2.3.3"
+		"github.com/viniciussanchez/dataset-serialize": "^v2.3.3",
+		"https://github.com/jacktrapper/bcrypt-for-delphi": ">0.0.0",
+		"https://github.com/viniciussanchez/bcrypt": "^1.0.5"
 	}
 }

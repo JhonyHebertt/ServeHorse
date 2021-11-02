@@ -10,10 +10,26 @@
 			"failed": false,
 			"changed": false
 		},
+		"github.com/hashload/horse-basic-auth": {
+			"name": "horse-basic-auth",
+			"version": "v1.1.5",
+			"hash": "1f90e2de18f711aa30641c0fdd1ae99a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/hashload/horse-cors": {
 			"name": "horse-cors",
 			"version": "1.0.3",
 			"hash": "248f37dd844f5a4c4ff78364e5a86027",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/hashload/horse-jwt": {
+			"name": "horse-jwt",
+			"version": "2.0.4",
+			"hash": "b1eea3f49e0d63658cb3a8d4ce0822c6",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
@@ -26,10 +42,34 @@
 			"failed": false,
 			"changed": false
 		},
+		"github.com/paolo-rossi/delphi-jose-jwt": {
+			"name": "delphi-jose-jwt",
+			"version": "v3.0.2",
+			"hash": "1d7fa80f250fee6a43d92408bcff8826",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/viniciussanchez/dataset-serialize": {
 			"name": "dataset-serialize",
 			"version": "v2.3.3",
 			"hash": "65a1995f3a283f09382722a7a8c21d1a",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/jacktrapper/bcrypt-for-delphi": {
+			"name": "bcrypt-for-delphi",
+			"version": "master",
+			"hash": "392464145c3588d2221786c0f606a2af",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"https://github.com/viniciussanchez/bcrypt": {
+			"name": "bcrypt",
+			"version": "1.0.5",
+			"hash": "c3e5526f99c34f9eb0696838f74c0e0b",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
