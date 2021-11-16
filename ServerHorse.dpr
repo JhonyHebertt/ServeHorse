@@ -51,5 +51,5 @@ Var
   Controller.categoria.Registry;
   Controller.produto.Registry;
 
-    App.start;
+  App.start;
 end.

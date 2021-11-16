@@ -156,6 +156,7 @@ end;
 function TUsuario.Inserir(out erro: string): Boolean;
 var
     qry : TFDQuery;
+    LHash : String;
 begin
     // Validacoes...
     if USERNAME.IsEmpty then
@@ -177,7 +178,8 @@ begin
             SQL.Add('VALUES(:USERNAME, :PASSWORD, :STATUS)');
 
             ParamByName('USERNAME').Value := USERNAME;
-            ParamByName('PASSWORD').Value := PASSWORD;
+            LHash := TBCrypt.GenerateHash(PASSWORD); //...
+            ParamByName('PASSWORD').Value := LHash;
             ParamByName('STATUS')  .Value := STATUS;
 
             ExecSQL;
