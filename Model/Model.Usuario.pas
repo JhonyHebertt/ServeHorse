@@ -47,16 +47,16 @@ begin
       SQL.Clear;
       SQL.Add('SELECT * FROM usuarios WHERE 1 = 1');
       SQL.Add('   AND UPPER(USERNAME) = UPPER( :USERNAME ) ');
-      ParamByName('USERNAME').AsString := USERNAME;
+      ParamByName('USERNAME').AsString := UpperCase(USERNAME);
       Open;
     end;
 
 
     if not qry.IsEmpty then
     begin
-      if TBCrypt.CompareHash(Password,qry.FieldByName('PASSWORD').AsString) then
+      if TBCrypt.CompareHash(UpperCase(Password),qry.FieldByName('PASSWORD').AsString) then
       begin
-        mUsuario := qry.FieldByName('USERNAME').AsString;
+        mUsuario := UpperCase(qry.FieldByName('USERNAME').AsString);
         mID      := qry.FieldByName('ID')      .AsString;
         Result   := True;
       end
@@ -134,8 +134,8 @@ begin
             sql.Clear;
             SQL.Add('UPDATE usuarios SET USERNAME=:USERNAME, PASSWORD=:PASSWORD, STATUS=:STATUS');
             SQL.Add('WHERE ID=:ID');
-            ParamByName('USERNAME').Value := USERNAME;
-            ParamByName('PASSWORD').Value := PASSWORD;
+            ParamByName('USERNAME').Value := UpperCase(USERNAME);
+            ParamByName('PASSWORD').Value := UpperCase(PASSWORD);
             ParamByName('STATUS')  .Value := STATUS;
             ParamByName('ID')      .Value := ID;
             ExecSQL;
@@ -171,14 +171,29 @@ begin
         qry.Connection := Model.Connection.FConnection;
 
         with qry do
+    begin
+      Close;
+      SQL.Clear;
+      SQL.Add('SELECT * FROM usuarios WHERE 1 = 1');
+      SQL.Add('   AND UPPER(USERNAME) = UPPER( :USERNAME ) ');
+      ParamByName('USERNAME').AsString := UpperCase(USERNAME);
+      Open;
+    end;
+
+
+    if not qry.IsEmpty then
+    begin
+
+    end;
+        with qry do
         begin
             Active := false;
             sql.Clear;
             SQL.Add('INSERT INTO usuarios (USERNAME, PASSWORD, STATUS)');
             SQL.Add('VALUES(:USERNAME, :PASSWORD, :STATUS)');
 
-            ParamByName('USERNAME').Value := USERNAME;
-            LHash := TBCrypt.GenerateHash(PASSWORD); //...
+            ParamByName('USERNAME').Value := UpperCase(USERNAME);
+            LHash := TBCrypt.GenerateHash(UpperCase(PASSWORD)); //...
             ParamByName('PASSWORD').Value := LHash;
             ParamByName('STATUS')  .Value := STATUS;
 
@@ -230,7 +245,7 @@ begin
             if USERNAME <> '' then
             begin
                 SQL.Add('AND USERNAME LIKE :USERNAME');
-                ParamByName('USERNAME').Value := USERNAME;
+                ParamByName('USERNAME').Value := UpperCase(USERNAME);
             end;
 
             if order_by = '' then

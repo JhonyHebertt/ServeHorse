@@ -202,7 +202,7 @@ procedure Registry;
 begin
     THorse.Get('/usuarios'       , Authorization, ListarUsuarios);
     THorse.Get('/usuarios/:id'   , Authorization, ListarUsuariosID);
-    THorse.Post('/usuarios'      , Authorization, AddUsuario);
+    THorse.Post('/usuarios'      , AddUsuario);
     THorse.Put('/usuarios'       , Authorization, EditarUsuario);
     THorse.Delete('/usuarios/:id', Authorization, DeleteUsuario);
 end;

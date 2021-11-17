@@ -134,6 +134,8 @@ begin
             SQL.Add('               VALUES(:DESCRICAO,:CATEGORIA, :PRECO)');
 
             ParamByName('DESCRICAO').Value := DESCRICAO;
+            ParamByName('CATEGORIA').Value := CATEGORIA;
+            ParamByName('PRECO')    .Value := PRECO;
 
             ExecSQL;
 
