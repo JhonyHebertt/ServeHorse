@@ -141,7 +141,7 @@ begin
                 exit;
             end;
         end;
-
+        res.Send('Produto, deletado com sucesso!').Status(201);
     finally
         Prod.Free;
     end;

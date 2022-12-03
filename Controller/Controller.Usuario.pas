@@ -146,6 +146,7 @@ begin
             end;
         end;
 
+        res.Send('Usuário, deletado com sucesso!').Status(201);
     finally
         Usu.Free;
     end;
