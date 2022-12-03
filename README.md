@@ -1,5 +1,9 @@
 # ServeHorse
- API em Delphi para ser consumida em um projeto react.
+ API feita em Delphi.
+ CRUD simples:
+* Usuarios
+* Categorias
+* Produtos
  
  Utilizando
   Horse,
