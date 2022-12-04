@@ -140,7 +140,7 @@ begin
                 exit;
             end;
         end;
-        res.Send('Categoria, deletada com sucesso!').Status(201);
+        res.Send('Categoria, deletada com sucesso!').Status(202);
     finally
         Cat.Free;
     end;
