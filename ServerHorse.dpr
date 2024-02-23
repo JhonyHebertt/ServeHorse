@@ -26,11 +26,17 @@ Var
   App: THorse;
 
   begin
+
+   {$IFDEF MSWINDOWS}
+  IsConsole := False;
+  ReportMemoryLeaksOnShutdown := True;
+  {$ENDIF}
+
   try
     if THorse.IsRunning then
       THorse.StopListen;
 
-    App:= THorse.create(9000);
+    App:= THorse.Create();
   Except
     THorse.StopListen;
   end;
@@ -51,5 +57,11 @@ Var
   Controller.categoria.Registry;
   Controller.produto.Registry;
 
-  App.start;
+//  App.start;
+  app.Listen(9000,
+    procedure
+    begin
+      Writeln(Format('Server is runing on %s:%d', [THorse.Host, THorse.Port]));
+      Readln;
+    end);
 end.

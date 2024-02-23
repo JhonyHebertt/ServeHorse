@@ -2,58 +2,66 @@
 	"hash": "d41d8cd98f00b204e9800998ecf8427e",
 	"updated": "2021-10-14T14:20:34.0869611-04:00",
 	"installedModules": {
+		"github.com/andre-djsystem/hashlib4pascal": {
+			"name": "hashlib4pascal",
+			"version": "1.0.0",
+			"hash": "8528036224699ab509c7d8f31d691ffb",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/hashload/horse": {
 			"name": "horse",
-			"version": "v2.0.14",
-			"hash": "38c6bebdc7b9712d6e5856d299289a26",
+			"version": "3.1.6",
+			"hash": "4be1cbdee81a1ec4b86a270b9042e7f7",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/hashload/horse-basic-auth": {
 			"name": "horse-basic-auth",
-			"version": "v1.1.5",
-			"hash": "1f90e2de18f711aa30641c0fdd1ae99a",
+			"version": "1.2.3",
+			"hash": "525c71503c467b1db394d33d04bbc966",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/hashload/horse-cors": {
 			"name": "horse-cors",
-			"version": "1.0.3",
-			"hash": "248f37dd844f5a4c4ff78364e5a86027",
+			"version": "1.0.6",
+			"hash": "544456143eca0709bd9793b1fa04cb69",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/hashload/horse-jwt": {
 			"name": "horse-jwt",
-			"version": "2.0.4",
-			"hash": "b1eea3f49e0d63658cb3a8d4ce0822c6",
+			"version": "2.0.14",
+			"hash": "d7433d10c0fbc71649ee260ef70b8928",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/hashload/jhonson": {
 			"name": "jhonson",
-			"version": "1.1.2",
-			"hash": "85d9b3c97b5144448440d7d26bdd16de",
+			"version": "1.1.8",
+			"hash": "62d5763101381ad8aeec10773544b1dc",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/paolo-rossi/delphi-jose-jwt": {
 			"name": "delphi-jose-jwt",
-			"version": "v3.0.2",
-			"hash": "1d7fa80f250fee6a43d92408bcff8826",
+			"version": "v3.3.0",
+			"hash": "87ac350d80a8ad45755deccd4320e1f1",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
 		},
 		"github.com/viniciussanchez/dataset-serialize": {
 			"name": "dataset-serialize",
-			"version": "v2.3.3",
-			"hash": "65a1995f3a283f09382722a7a8c21d1a",
+			"version": "v2.5.6",
+			"hash": "7b3bac604d98cf8045bb592bdc72c18f",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
@@ -68,8 +76,8 @@
 		},
 		"https://github.com/viniciussanchez/bcrypt": {
 			"name": "bcrypt",
-			"version": "1.0.5",
-			"hash": "c3e5526f99c34f9eb0696838f74c0e0b",
+			"version": "1.0.8",
+			"hash": "69891b745eb58d4f9803acfb84163313",
 			"artifacts": {},
 			"failed": false,
 			"changed": false

@@ -35,7 +35,7 @@ implementation
 function TUsuario.Auth(Username, Password: String): Boolean;
 var
   qry   : TFDQuery;
-  LHash : String;
+//  LHash : String;
 begin
   try
     qry := TFDQuery.Create(nil);

@@ -11,7 +11,7 @@ uses Horse, Provider.AUTHORIZATION, JOSE.Core.JWT, System.JSON, System.SysUtils,
 
 procedure Auth(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
-  Usuario: TUsuario;
+//  Usuario: TUsuario;
   LToken : TJWT;
   Obj    : TJSONObject;
 begin
@@ -34,7 +34,8 @@ end;
 
 procedure Registry;
 begin
-  THorse.Get('/login', BasicAuthorization(), Auth);
+  //thorse.Use( BasicAuthorization());
+  THorse.Get('/login', Auth);
 end;
 
 end.

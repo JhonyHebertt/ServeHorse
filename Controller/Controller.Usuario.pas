@@ -2,7 +2,7 @@ unit Controller.Usuario;
 
 interface
 
-uses Horse, BCrypt, System.JSON, System.SysUtils, Model.Usuario, FireDAC.Comp.Client,
+uses Horse, Horse.JWT, BCrypt, System.JSON, System.SysUtils, Model.Usuario, FireDAC.Comp.Client,
      Data.DB, DataSet.Serialize, JOSE.Core.JWT, JOSE.Core.Builder, JOSE.Types.JSON,
      Provider.AUTHORIZATION;
 
@@ -121,7 +121,7 @@ end;
 procedure DeleteUsuario(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
     Usu : TUsuario;
-    objUsuario: TJSONObject;
+//    objUsuario: TJSONObject;
     erro : string;
 begin
     // Conexao com o banco...
@@ -201,11 +201,17 @@ end;
 
 procedure Registry;
 begin
-    THorse.Get('/usuarios'       , Authorization, ListarUsuarios);
-    THorse.Get('/usuarios/:id'   , Authorization, ListarUsuariosID);
-    THorse.Post('/usuarios'      , AddUsuario);
-    THorse.Put('/usuarios'       , Authorization, EditarUsuario);
-    THorse.Delete('/usuarios/:id', Authorization, DeleteUsuario);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/usuarios'    , ListarUsuarios);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/usuarios/:id', ListarUsuariosID);
+    THorse.Post('/usuarios'   , AddUsuario);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).put('/usuarios'    , EditarUsuario);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).delete('/usuarios' , DeleteUsuario);
+
+//    THorse.Get('/usuarios'       , Authorization, ListarUsuarios);
+//    THorse.Get('/usuarios/:id'   , Authorization, ListarUsuariosID);
+//    THorse.Post('/usuarios'      , Authorization, AddUsuario);
+//    THorse.Put('/usuarios'       , Authorization, EditarUsuario);
+//    THorse.Delete('/usuarios/:id', Authorization, DeleteUsuario);
 end;
 
 end.

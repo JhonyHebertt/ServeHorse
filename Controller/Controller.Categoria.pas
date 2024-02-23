@@ -2,7 +2,7 @@ unit Controller.Categoria;
 
 interface
 
-uses Horse, System.JSON, System.SysUtils, Model.Categoria, FireDAC.Comp.Client,
+uses Horse, horse.jwt, System.JSON, System.SysUtils, Model.Categoria, FireDAC.Comp.Client,
      Data.DB, DataSet.Serialize;
 
 procedure Registry;
@@ -116,7 +116,7 @@ end;
 procedure DeleteCategoria(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
     Cat : TCategoria;
-    objCategoria: TJSONObject;
+//    objCategoria: TJSONObject;
     erro : string;
 begin
     // Conexao com o banco...
@@ -193,11 +193,11 @@ end;
 
 procedure Registry;
 begin
-    THorse.Get('/categorias'       , Authorization, ListarCategorias);
-    THorse.Get('/categorias/:id'   , Authorization, ListarCategoriaID);
-    THorse.Post('/categorias'      , Authorization, AddCategoria);
-    THorse.Put('/categorias'       , Authorization, EditarCategoria);
-    THorse.Delete('/categorias/:id', Authorization, DeleteCategoria);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/categorias'       , ListarCategorias);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/categorias/:id'   , ListarCategoriaID);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Post('/categorias'      , AddCategoria);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Put('/categorias'       , EditarCategoria);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Delete('/categorias/:id', DeleteCategoria);
 end;
 
 end.

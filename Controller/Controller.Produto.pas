@@ -2,7 +2,7 @@ unit Controller.Produto;
 
 interface
 
-uses Horse, System.JSON, System.SysUtils, FireDAC.Comp.Client,
+uses Horse, horse.JWT, System.JSON, System.SysUtils, FireDAC.Comp.Client,
      Data.DB, DataSet.Serialize, Model.Produto, Provider.AUTHORIZATION;
 
 procedure Registry;
@@ -117,7 +117,7 @@ end;
 procedure DeleteProduto(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
     Prod : TProduto;
-    objProduto: TJSONObject;
+//    objProduto: TJSONObject;
     erro : string;
 begin
     // Conexao com o banco...
@@ -196,11 +196,11 @@ end;
 
 procedure Registry;
 begin
-    THorse.Get('/produtos'       , Authorization, ListarProdutos);
-    THorse.Get('/produtos/:id'   , Authorization, ListarProdutoID);
-    THorse.Post('/produtos'      , Authorization, AddProduto);
-    THorse.Put('/produtos'       , Authorization, EditarProduto);
-    THorse.Delete('/produtos/:id', Authorization, DeleteProduto);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/produtos'       , ListarProdutos);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Get('/produtos/:id'   , ListarProdutoID);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Post('/produtos'      , AddProduto);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Put('/produtos'       , EditarProduto);
+    THorse.AddCallback(HorseJWT('DELPHIREACT')).Delete('/produtos/:id', DeleteProduto);
 end;
 
 end.
